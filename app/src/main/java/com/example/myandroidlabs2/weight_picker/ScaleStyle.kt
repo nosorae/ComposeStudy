@@ -11,7 +11,7 @@ data class ScaleStyle(
     val scaleWidth: Dp = 100.dp,
     val radius: Dp = 550.dp,
     val normalLineColor: Color = Color.LightGray,
-    val fiveStepLineColor: Color = Color.Black,
+    val fiveStepLineColor: Color = Color.Green,
     val tenStepLineColor: Color = Color.Black,
     val normalLineLength: Dp = 15.dp,
     val fiveStepLineLength: Dp = 25.dp,
