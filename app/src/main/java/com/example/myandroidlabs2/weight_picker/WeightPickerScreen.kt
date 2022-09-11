@@ -140,7 +140,7 @@ fun Scale(
 
         // Draw lines
         for (i in minWeight..maxWeight) {
-            val angleInRad = (i - initialWeight + angle - 90) * (PI / 180f).toFloat() // 디그리로
+            val angleInRad = (i - initialWeight + angle - 90) * (PI / 180f).toFloat() // 라디언으로
 
             val lineType = when {
                 i % 10 == 0 -> LineType.TenStep
