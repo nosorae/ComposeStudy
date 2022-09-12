@@ -13,10 +13,10 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun PathScreen() {
+fun PathBasicScreen() {
     Canvas(modifier = Modifier.fillMaxSize()) {
         val path = Path().apply {
-            moveTo(1000f, 100f) // 원하는 좌표로 붓을 이동하는 것과 같다.
+            moveTo(1000f, 100f) // 원하는 좌표로 붓을 들어 이동하는 것과 같다.
             lineTo(100f, 500f) // 400 pixel 아래로
             lineTo(500f, 500f)
 //            quadraticBezierTo(x1 = 800f, y1 = 300f, x2 = 500f, y2 = 100f)
