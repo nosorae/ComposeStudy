@@ -8,7 +8,6 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Path
@@ -19,8 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.withRotation
-import com.example.myandroidlabs2.weight_picker.LineType
-import com.example.myandroidlabs2.weight_picker.ScaleStyle
+import com.example.myandroidlabs2.feature.weight_picker.LineType
+import com.example.myandroidlabs2.feature.weight_picker.ScaleStyle
 import kotlin.math.*
 
 @Composable
