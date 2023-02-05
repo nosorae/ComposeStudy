@@ -1,7 +1,6 @@
-package com.example.myandroidlabs2
+package com.study.compose
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button

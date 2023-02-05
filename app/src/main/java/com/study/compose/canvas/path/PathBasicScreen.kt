@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2.feature.path
+package com.study.compose.canvas.path
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

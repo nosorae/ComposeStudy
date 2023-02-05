@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2
+package com.study.compose
 
 import android.graphics.Color
 import android.graphics.Paint
@@ -18,8 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.withRotation
-import com.example.myandroidlabs2.feature.weight_picker.LineType
-import com.example.myandroidlabs2.feature.weight_picker.ScaleStyle
+import com.study.compose.canvas.weight_picker.LineType
+import com.study.compose.canvas.weight_picker.ScaleStyle
 import kotlin.math.*
 
 @Composable

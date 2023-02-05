@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2.ui.theme
+package com.study.compose.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2.feature.weight_picker
+package com.study.compose.canvas.weight_picker
 
 sealed class LineType {
     object Normal : LineType()

@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2.feature.clock
+package com.study.compose.canvas.clock
 
 import android.graphics.Paint
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2.feature.weight_picker
+package com.study.compose.canvas.weight_picker
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp

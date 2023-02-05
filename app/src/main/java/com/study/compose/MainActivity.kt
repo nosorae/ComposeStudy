@@ -1,9 +1,9 @@
-package com.example.myandroidlabs2
+package com.study.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.myandroidlabs2.feature.path.PathOperationScreen
+import com.study.compose.canvas.path.PathOperationScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

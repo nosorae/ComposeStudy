@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2
+package com.study.compose
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.myandroidlabs2
+package com.study.compose
 
 import android.util.Log
 import androidx.compose.foundation.Canvas
