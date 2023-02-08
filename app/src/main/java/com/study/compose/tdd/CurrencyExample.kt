@@ -6,7 +6,7 @@ open class Money(
 ) {
     override fun equals(other: Any?): Boolean {
         val money = other as Money
-        return amount == money.amount && javaClass == money.javaClass
+        return amount == money.amount && currency == money.currency
     }
 
     companion object {
