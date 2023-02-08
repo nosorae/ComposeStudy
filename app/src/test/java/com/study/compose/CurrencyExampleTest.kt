@@ -7,9 +7,8 @@ class CurrencyExampleTest {
     @Test
     fun testMultiplication() {
         val five = Dollor(5)
-        five.times(2)
-        assert(10 == five.amount)
+        assert(10 == five.times(2).amount)
         five.times(3)
-        assert(15 == five.amount)
+        assert(15 == five.times(3).amount)
     }
 }
