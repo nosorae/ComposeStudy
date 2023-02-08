@@ -41,5 +41,10 @@ class CurrencyExampleTest {
         assert(Money.franc(10) == Money.franc(5) * 2)
         assert(Money.franc(10) == Money(2, "CHF") * 5)
     }
+
+    @Test
+    fun testSimpleAddition() {
+        assert(Money.dollor(5) + Money.dollor(5) == Money.dollor(10))
+    }
 }
 // 임시 변수를 없애면, 일련의 오퍼레이션이 아니라 참인 명제에 대한 단언들이므로 우리의 의도를 더 명확하게 이야기해준다.

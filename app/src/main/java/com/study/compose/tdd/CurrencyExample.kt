@@ -12,6 +12,10 @@ open class Money(
         return Money(this.amount * amount, currency)
     }
 
+    operator fun plus(money: Money): Money {
+        return Money(this.amount + money.amount, currency)
+    }
+
     companion object {
         fun dollor(amount: Int) = Money(amount, "USD")
         fun franc(amount: Int) = Money(amount, "CHF")
