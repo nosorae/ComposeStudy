@@ -6,7 +6,6 @@ open class Money(
 ) {
     override fun equals(other: Any?): Boolean {
         val money = other as Money
-        println("$javaClass / ${money.javaClass}")
         return amount == money.amount && javaClass == money.javaClass
     }
 
@@ -21,7 +20,7 @@ class Dollor(
     currency: String
 ) : Money(amount, currency) {
     operator fun times(amount: Int): Money {
-        return dollor(this.amount * amount)
+        return Money(this.amount * amount, currency)
     }
 }
 
