@@ -2,18 +2,18 @@ package com.study.compose.tdd
 
 open class Money(
     protected val amount: Int
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        val money = other as Money
+        return amount == money.amount
+    }
+}
 
 class Dollor(
     amount: Int
 ) : Money(amount) {
     operator fun times(amount: Int): Dollor {
         return Dollor(this.amount * amount)
-    }
-
-    override fun equals(other: Any?): Boolean {
-        val dollor = other as Dollor
-        return amount == dollor.amount
     }
 }
 
@@ -22,11 +22,6 @@ class Franc(
 ) : Money(amount) {
     operator fun times(amount: Int): Franc {
         return Franc(this.amount * amount)
-    }
-
-    override fun equals(other: Any?): Boolean {
-        val dollor = other as Franc
-        return amount == dollor.amount
     }
 }
 
