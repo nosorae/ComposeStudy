@@ -1,7 +1,7 @@
 package com.study.compose.tdd
 
 open class Money(
-    private val amount: Int,
+    val amount: Int,
     private val currency: String
 ) : Expression {
     override fun equals(other: Any?): Boolean {
@@ -16,17 +16,32 @@ open class Money(
         return Money(this.amount + money.amount, currency)
     }
 
+    override fun reduce(to: String): Money {
+        return this
+    }
+
     companion object {
         fun dollor(amount: Int) = Money(amount, "USD")
         fun franc(amount: Int) = Money(amount, "CHF")
     }
 }
 
-interface Expression
+interface Expression {
+    fun reduce(to: String): Money
+}
 
 class Bank {
     fun reduce(source: Expression, to: String): Money {
-        return Money.dollor(10)
+        return source.reduce(to)
+    }
+}
+
+class Sum(
+    private val augend: Money,
+    private val addend: Money
+) : Expression {
+    override fun reduce(to: String): Money {
+        return Money(augend.amount + addend.amount, to)
     }
 }
 

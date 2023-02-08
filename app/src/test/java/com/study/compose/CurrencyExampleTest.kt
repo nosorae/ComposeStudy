@@ -3,6 +3,7 @@ package com.study.compose
 import com.study.compose.tdd.Bank
 import com.study.compose.tdd.Expression
 import com.study.compose.tdd.Money
+import com.study.compose.tdd.Sum
 import org.junit.Test
 
 class CurrencyExampleTest {
@@ -50,6 +51,14 @@ class CurrencyExampleTest {
         val bank = Bank()
         val reduced = bank.reduce(sum, "USD")
         assert(reduced == Money.dollor(10))
+    }
+
+    @Test
+    fun testReduceSum() {
+        val sum = Sum(Money.dollor(3), Money.dollor(4))
+        val bank = Bank()
+        val result = bank.reduce(sum, "USD")
+        assert(Money.dollor(7) == result)
     }
 }
 // 임시 변수를 없애면, 일련의 오퍼레이션이 아니라 참인 명제에 대한 단언들이므로 우리의 의도를 더 명확하게 이야기해준다.
