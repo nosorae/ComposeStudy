@@ -1,7 +1,5 @@
 package com.study.compose
 
-import com.study.compose.tdd.Dollor
-import com.study.compose.tdd.Franc
 import com.study.compose.tdd.Money
 import org.junit.Test
 
@@ -40,6 +38,8 @@ class CurrencyExampleTest {
     fun test9() {
         val five = Money.dollor(5)
         assert(Money.dollor(10) == five.times(2))
+        assert(Money.franc(10) == Money.franc(5).times(2))
+        assert(Money.franc(10) == Money(10, "CHF"))
     }
 }
 // 임시 변수를 없애면, 일련의 오퍼레이션이 아니라 참인 명제에 대한 단언들이므로 우리의 의도를 더 명확하게 이야기해준다.
