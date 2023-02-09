@@ -23,6 +23,10 @@ open class Money(
         return Money(amount / rate, to)
     }
 
+    override fun toString(): String {
+        return "$amount-$currency"
+    }
+
     companion object {
         fun dollor(amount: Int) = Money(amount, "USD")
         fun franc(amount: Int) = Money(amount, "CHF")
