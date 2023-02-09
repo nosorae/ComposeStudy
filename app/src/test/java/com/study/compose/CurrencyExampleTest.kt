@@ -60,5 +60,17 @@ class CurrencyExampleTest {
         val result = bank.reduce(sum, "USD")
         assert(Money.dollor(7) == result)
     }
+
+    @Test
+    fun testHashMap() {
+        val bank = Bank()
+        bank.addRate("A", "B", 3)
+        assert(3 == bank.rate("A", "B"))
+    }
+
+    @Test
+    fun testEqualCurrnecyRate() {
+        assert(1 == Bank().rate("USD", "USD"))
+    }
 }
 // 임시 변수를 없애면, 일련의 오퍼레이션이 아니라 참인 명제에 대한 단언들이므로 우리의 의도를 더 명확하게 이야기해준다.
