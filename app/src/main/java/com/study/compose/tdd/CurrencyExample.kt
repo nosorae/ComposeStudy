@@ -45,7 +45,6 @@ class Bank {
         return source.reduce(this, to)
     }
 
-
     fun addRate(from: String, to: String, rate: Int) {
         hashMap[Pair(from, to)] = rate
     }
@@ -73,7 +72,6 @@ class Sum(
         return Sum(this, addend)
     }
 }
-
 
 class MyTest(
     val amount: Int
