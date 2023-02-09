@@ -83,5 +83,17 @@ class CurrencyExampleTest {
         val result = bank.reduce((fiveBucks + tenFranc) ?: throw Exception("null"), "USD")
         assertEquals(Money.dollor(10), result)
     }
+
+    @Test
+    fun testPlusMoney() {
+        val fiveBucks: Expression = Money.dollor(5)
+        val tenFranc: Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val sum: Expression = (Sum(fiveBucks, tenFranc) + fiveBucks)
+        val result = bank.reduce(sum, "USD")
+        assertEquals(Money.dollor(15), result)
+        assertEquals(Money.dollor(15), bank.reduce(Sum(Sum(fiveBucks, tenFranc), fiveBucks), "USD"))
+    }
 }
 // 임시 변수를 없애면, 일련의 오퍼레이션이 아니라 참인 명제에 대한 단언들이므로 우리의 의도를 더 명확하게 이야기해준다.

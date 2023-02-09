@@ -33,7 +33,7 @@ open class Money(
 
 interface Expression {
     fun reduce(bank: Bank, to: String): Money
-    operator fun plus(addend: Expression): Expression?
+    operator fun plus(addend: Expression): Expression
 }
 
 class Bank {
@@ -63,8 +63,8 @@ class Sum(
         return Money(amount, to)
     }
 
-    override fun plus(addend: Expression): Expression? {
-        return null
+    override fun plus(addend: Expression): Expression {
+        return Sum(this, addend)
     }
 }
 
