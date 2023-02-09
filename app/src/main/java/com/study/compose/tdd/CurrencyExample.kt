@@ -46,6 +46,7 @@ class Bank {
     }
 
     fun rate(from: String, to: String): Int {
+        if (from == to) return 1
         return hashMap[Pair(from, to)] ?: throw Exception("No rate info")
     }
 }
