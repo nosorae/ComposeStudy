@@ -76,11 +76,11 @@ class CurrencyExampleTest {
 
     @Test
     fun testMixedAddition() {
-        val fiveBucks = Money.dollor(5)
-        val tenFranc = Money.franc(10)
+        val fiveBucks: Expression = Money.dollor(5)
+        val tenFranc: Expression = Money.franc(10)
         val bank = Bank()
         bank.addRate("CHF", "USD", 2)
-        val result = bank.reduce(fiveBucks + tenFranc, "USD")
+        val result = bank.reduce((fiveBucks + tenFranc) ?: throw Exception("null"), "USD")
         assertEquals(Money.dollor(10), result)
     }
 }

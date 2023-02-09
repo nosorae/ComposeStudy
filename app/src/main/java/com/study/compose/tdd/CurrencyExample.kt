@@ -8,11 +8,11 @@ open class Money(
         val money = other as Money
         return amount == money.amount && currency == money.currency
     }
-    operator fun times(amount: Int): Money {
+    operator fun times(amount: Int): Expression {
         return Money(this.amount * amount, currency)
     }
 
-    operator fun plus(money: Money): Expression {
+    override fun plus(money: Expression): Expression {
         return Sum(this, money)
     }
 
@@ -33,6 +33,7 @@ open class Money(
 
 interface Expression {
     fun reduce(bank: Bank, to: String): Money
+    operator fun plus(addend: Expression): Expression?
 }
 
 class Bank {
@@ -54,12 +55,16 @@ class Bank {
 }
 
 class Sum(
-    private val augend: Money,
-    private val addend: Money
+    private val augend: Expression,
+    private val addend: Expression
 ) : Expression {
     override fun reduce(bank: Bank, to: String): Money {
         val amount = augend.reduce(bank, to).amount + addend.reduce(bank, to).amount
         return Money(amount, to)
+    }
+
+    override fun plus(addend: Expression): Expression? {
+        return null
     }
 }
 
