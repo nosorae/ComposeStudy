@@ -1,7 +1,5 @@
 package com.study.compose.tdd
 
-import java.util.Hashtable
-
 open class Money(
     val amount: Int,
     private val currency: String
@@ -15,7 +13,7 @@ open class Money(
     }
 
     operator fun plus(money: Money): Expression {
-        return Money(this.amount + money.amount, currency)
+        return Sum(this, money)
     }
 
     override fun reduce(bank: Bank, to: String): Money {
@@ -60,7 +58,8 @@ class Sum(
     private val addend: Money
 ) : Expression {
     override fun reduce(bank: Bank, to: String): Money {
-        return Money(augend.amount + addend.amount, to)
+        val amount = augend.reduce(bank, to).amount + addend.reduce(bank, to).amount
+        return Money(amount, to)
     }
 }
 
