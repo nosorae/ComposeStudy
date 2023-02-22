@@ -8,6 +8,15 @@ class WasRun(var wasRun: Boolean = false, override val name: String) : TestCase(
     }
 }
 
+class TestCaseTest(override val name: String): TestCase(name) {
+    fun testRunning() {
+        val test = WasRun(name = "testMethod")
+        assert(!test.wasRun)
+        test()
+        assert(test.wasRun)
+    }
+}
+
 abstract class TestCase(open val name: String) {
     operator fun invoke() {
         val func = this::class.memberFunctions.find { func ->
