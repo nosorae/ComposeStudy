@@ -6,7 +6,7 @@ class WasRun(
     override val name: String
 ) : TestCase(name) {
     var wasRun: Boolean = false
-    var wasSetUp: Boolean = false
+    var log: String = ""
 
     fun testMethod() {
         wasRun = true
@@ -14,7 +14,7 @@ class WasRun(
 
     override fun setUp() {
         wasRun = false
-        wasSetUp = true
+        log = "setUp "
     }
 }
 
@@ -32,7 +32,7 @@ class TestCaseTest(override val name: String): TestCase(name) {
 
     fun testSetUp() {
         test()
-        assert(test.wasSetUp)
+        assert("setUp " == test.log)
     }
 }
 
