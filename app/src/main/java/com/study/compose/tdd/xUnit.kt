@@ -46,9 +46,13 @@ abstract class TestCase(open val name: String) {
         val result = TestResult()
         result.testStarted()
         setUp()
-        val func = this::class.memberFunctions.find { func -> func.name == name }
-            ?: throw RuntimeException("Can't find method named '$name'")
-        func.call(this)
+        try {
+            val func = this::class.memberFunctions.find { func -> func.name == name }
+                ?: throw RuntimeException("Can't find method named '$name'")
+            func.call(this)
+        } catch (e: Exception) {
+            result.testFailed()
+        }
         tearDown()
         return result
     }
