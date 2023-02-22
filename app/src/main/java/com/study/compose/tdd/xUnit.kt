@@ -2,7 +2,6 @@ package com.study.compose.tdd
 
 import kotlin.reflect.full.memberFunctions
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class WasRun(
     override val name: String
@@ -28,12 +27,7 @@ class TestCaseTest(override val name: String): TestCase(name) {
         test = WasRun(name = "testMethod")
     }
 
-    fun testRunning() {
-        test()
-        assertTrue { test.wasRun }
-    }
-
-    fun testSetUp() {
+    fun testTemplatedMethod() {
         test()
         assertEquals("setUp testMethod ", test.log)
     }
