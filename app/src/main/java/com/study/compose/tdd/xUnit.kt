@@ -1,6 +1,8 @@
 package com.study.compose.tdd
 
 import kotlin.reflect.full.memberFunctions
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class WasRun(
     override val name: String
@@ -10,11 +12,12 @@ class WasRun(
 
     fun testMethod() {
         wasRun = true
+        log += "testMethod "
     }
 
     override fun setUp() {
         wasRun = false
-        log = "setUp "
+        log += "setUp "
     }
 }
 
@@ -27,12 +30,12 @@ class TestCaseTest(override val name: String): TestCase(name) {
 
     fun testRunning() {
         test()
-        assert(test.wasRun)
+        assertTrue { test.wasRun }
     }
 
     fun testSetUp() {
         test()
-        assert("setUp " == test.log)
+        assertEquals("setUp testMethod ", test.log)
     }
 }
 
