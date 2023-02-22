@@ -19,4 +19,9 @@ class XUnitTest {
     fun testTemplatedMethod() {
         TestCaseTest("testTemplatedMethod")()
     }
+
+    @Test
+    fun testResult() {
+        TestCaseTest("testResult")()
+    }
 }

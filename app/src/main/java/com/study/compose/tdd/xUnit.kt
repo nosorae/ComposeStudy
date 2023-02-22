@@ -30,17 +30,38 @@ class TestCaseTest(override val name: String): TestCase(name) {
         test()
         assertEquals("setUp testMethod tearDown ", test.log)
     }
+
+    fun testResult() {
+        val test = WasRun(name = "testMethod")
+        val result = test()
+        assertEquals("1 run, 0 failed", result.summary())
+    }
 }
 
 abstract class TestCase(open val name: String) {
     open fun setUp() {}
     open fun tearDown() {}
 
-    operator fun invoke() {
+    operator fun invoke(): TestResult {
+        val result = TestResult()
+        result.testStarted()
         setUp()
         val func = this::class.memberFunctions.find { func -> func.name == name }
             ?: throw RuntimeException("Can't find method named '$name'")
         func.call(this)
         tearDown()
+        return result
     }
+}
+
+class TestResult(var runCount: Int = 0, var failureCount: Int = 0) {
+    fun testStarted() {
+        runCount += 1
+    }
+
+    fun testFailed() {
+        failureCount += 1
+    }
+
+    fun summary() = "$runCount run, $failureCount failed"
 }
