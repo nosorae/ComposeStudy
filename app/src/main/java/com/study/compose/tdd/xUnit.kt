@@ -18,31 +18,29 @@ class WasRun(
         wasRun = false
         log += "setUp "
     }
+
+    override fun tearDown() {
+        log += "tearDown "
+    }
 }
 
 class TestCaseTest(override val name: String): TestCase(name) {
-    lateinit var test: WasRun
-
-    override fun setUp() {
-        test = WasRun(name = "testMethod")
-    }
-
     fun testTemplatedMethod() {
+        val test = WasRun(name = "testMethod")
         test()
-        assertEquals("setUp testMethod ", test.log)
+        assertEquals("setUp testMethod tearDown ", test.log)
     }
 }
 
 abstract class TestCase(open val name: String) {
-    open fun setUp() {
-        // do nothing
-    }
+    open fun setUp() {}
+    open fun tearDown() {}
 
     operator fun invoke() {
         setUp()
-        val func = this::class.memberFunctions.find { func ->
-            func.name == name
-        } ?: throw RuntimeException("Can't find method named '$name'")
+        val func = this::class.memberFunctions.find { func -> func.name == name }
+            ?: throw RuntimeException("Can't find method named '$name'")
         func.call(this)
+        tearDown()
     }
 }
