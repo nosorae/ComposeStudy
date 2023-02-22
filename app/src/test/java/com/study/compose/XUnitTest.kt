@@ -16,12 +16,7 @@ class XUnitTest {
     }
 
     @Test
-    fun testTestRunning() {
-        TestCaseTest("testRunning")()
-    }
-
-    @Test
-    fun testSetUP() {
-        TestCaseTest("testSetUp")()
+    fun testTemplatedMethod() {
+        TestCaseTest("testTemplatedMethod")()
     }
 }
