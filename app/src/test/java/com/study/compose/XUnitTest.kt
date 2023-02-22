@@ -19,4 +19,9 @@ class XUnitTest {
     fun testTestRunning() {
         TestCaseTest("testRunning")()
     }
+
+    @Test
+    fun testSetUP() {
+        TestCaseTest("testSetUp")()
+    }
 }
