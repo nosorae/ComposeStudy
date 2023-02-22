@@ -52,13 +52,14 @@ abstract class TestCase(open val name: String) {
             func.call(this)
         } catch (e: Exception) {
             result.testFailed()
+        } finally {
+            tearDown()
         }
-        tearDown()
         return result
     }
 }
 
-class TestResult(var runCount: Int = 0, var failureCount: Int = 0) {
+class TestResult(var runCount: Int = 0, var failureCount: Int = 0, var setUpFailureCount: Int = 0) {
     fun testStarted() {
         runCount += 1
     }
