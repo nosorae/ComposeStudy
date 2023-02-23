@@ -24,4 +24,9 @@ class XUnitTest {
     fun testResult() {
         TestCaseTest("testResult")()
     }
+
+    @Test
+    fun testSuite() {
+        TestCaseTest("testSuite").invoke()
+    }
 }
